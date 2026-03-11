@@ -5,8 +5,8 @@ using namespace std;
 
 int main()
 {
-	/*
-	
+	/* 포인터설명
+
 	int A = 10;
 	//P는 별명, 정수형 변수의 주소를 기억하는 숫자 공간을 요청
 	int* P = &A; //A 변수에 주소를 주세요, 정수형 변수A의 주소를 주세요
@@ -33,7 +33,7 @@ int main()
 	
 	*/
 
-
+	/* 문자관련 과제
 	char test[10] = "abcabbbbc";
 	int length = StringLength(test,256); //입력최대글자 256
 	cout << "StringLength: " << length << endl;
@@ -46,11 +46,31 @@ int main()
 	PrintPlaceArray(TempArrayPointer, length);
 	cout << endl;
 	delete[] TempArrayPointer;
+	TempArrayPointer = nullptr;
 
 	cout << "SeachTargetCharPlace s:";
 	int* TempArrayPointer2 =SeachTargetCharPlace(test, length,'s');
 	PrintPlaceArray(TempArrayPointer2, length);
 	cout << endl;
 	delete[] TempArrayPointer2;
+	TempArrayPointer2 = nullptr;
+	*/
+
+	//포인터 과제
+	int Size = 0;
+	cin >> Size;
+	int* DynamicArray = new int[Size];
+	for (int i = 0; i < Size; i++)
+	{
+		DynamicArray[i] = i + 1;
+	}
+	for (int i = 0; i < Size; i++)
+	{
+		cout << DynamicArray[i];
+	}
+	cout << endl;
+	delete[] DynamicArray;
+	DynamicArray = nullptr;
+
 	return 0;
 }
