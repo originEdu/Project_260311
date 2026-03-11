@@ -123,9 +123,9 @@ int* SeachTargetCharPlace(char TargetChar, char* String)
 	return PlaceArray;
 }
 
+//찾은 문자 위치 저장하는 배열 출력 함수
 void PrintPlaceArray(int* PlaceArray)
 {
-	int ArrayIndex = 0;
 
 	for (int i = 0; i < 256;i++) //최대길이 256이니깐
 	{
@@ -135,8 +135,7 @@ void PrintPlaceArray(int* PlaceArray)
 		}
 		else 
 		{
-			cout << " " << PlaceArray[ArrayIndex];
-			ArrayIndex++;
+			cout << " " << PlaceArray[i];
 		}
 	}
 }
