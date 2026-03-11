@@ -60,10 +60,17 @@ int main()
 	int Size = 0;
 	cin >> Size;
 	int* DynamicArray = new int[Size];
+	//예외처리
+	if (DynamicArray == nullptr) // -> if(DynamicArray)이거랑 같은거임
+	{
+		return -1;
+	}
+	//값 대입
 	for (int i = 0; i < Size; i++)
 	{
 		DynamicArray[i] = i + 1;
 	}
+	//값 출력
 	for (int i = 0; i < Size; i++)
 	{
 		cout << DynamicArray[i];
