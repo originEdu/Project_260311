@@ -5,6 +5,7 @@
 - 문자열 과제 -> StringUtil.cpp 참고
 - 포인터 과제
 - 공뽑기 과제 -> PocketUtil.cpp 참고
+- 10X10맵에 WASD를 입력받아 P(플레이어)이동시키기 과제
 
 # StringUtil.cpp
 - 문자열 갯수 세기 함수 -> int StringLength(char* String, int InputMaxLength);
