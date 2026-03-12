@@ -125,9 +125,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="StringUtil.cpp" />
+    <ClCompile Include="PocketUtil.cpp" />
+    <ClCompile Include="StringUtill.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="PocketUtil.h" />
     <ClInclude Include="StringUtil.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
