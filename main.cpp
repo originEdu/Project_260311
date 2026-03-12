@@ -12,12 +12,15 @@ int main()
 	int* SuffledPocket = CreatePocket(Size); //주머니 생성
 
 	SynchronizingPocket(Pocket, SuffledPocket, Size); //Pocket과 SuffledPocket 동기화
+	                                                  //물론 지금은 의미없는 행위
 	Shuffle(SuffledPocket,Size); //공 셔플
 	PullOut(SuffledPocket, 6); //공 뽑기
 	
 	//동적할당해제
 	delete[] Pocket;
 	delete[] SuffledPocket;
+	Pocket = nullptr;
+	SuffledPocket = nullptr;
 	return 0;
 }
 
