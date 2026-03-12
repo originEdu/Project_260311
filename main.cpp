@@ -1,12 +1,28 @@
 ﻿#include<iostream>
 #include "StringUtil.h"
-using namespace std;
+#include "PocketUtil.h"
 
+using namespace std;
 
 int main()
 {
-	/* 포인터설명
+	//무작위 공뽑기 과제
+	int Size = 45; //공 크기
+	int* Pocket= CreatePocket(Size); //주머니 생성
+	int* SuffledPocket = CreatePocket(Size); //주머니 생성
 
+	SynchronizingPocket(Pocket, SuffledPocket, Size); //Pocket과 SuffledPocket 동기화
+	Suffle(SuffledPocket,Size); //공 셔플
+	PullOut(SuffledPocket, 6); //공 뽑기
+	
+	//동적할당해제
+	delete[] Pocket;
+	delete[] SuffledPocket;
+	return 0;
+}
+
+/* 수업내용
+	//포인터설명
 	int A = 10;
 	//P는 별명, 정수형 변수의 주소를 기억하는 숫자 공간을 요청
 	int* P = &A; //A 변수에 주소를 주세요, 정수형 변수A의 주소를 주세요
@@ -30,7 +46,7 @@ int main()
 	cout << *(Number + 1) << endl;
 	cout << P3[1] << endl;
 	cout << Number[1] << endl;
-	
+
 	*/
 
 	/* 문자관련 과제
@@ -79,42 +95,4 @@ int main()
 	cout << endl;
 	delete[] DynamicArray;
 	DynamicArray = nullptr;
-	*/
-
-	//무작위 공뽑기 과제
-	int InitPocket[45] = { 0 }; //45개의 공 생성
-	int SuffledPocket[45] = { 0 };
-	for (int i = 0; i < 45; i++) // InitPocket 45개의 공 초기화
-	{
-		InitPocket[i] = i+1;
-	}
-	for (int i = 0; i < 45; i++) // SuffledPocket와 InitPocket 동기화
-	{
-		SuffledPocket[i] = InitPocket[i];
-	}
-
-	//45개의 공 셔플
-	srand((unsigned)time(nullptr)); //시드 초기화
-	int Temp = 0; //셔플을 위한 공간
-	int FirstIndex = 0;
-	int SecondIndex = 0;
-	for (int i = 0; i < 180; i++) //대충 적당한 횟수로 섞어주셈
-	{
-		FirstIndex = rand() % 45;
-		SecondIndex = rand() % 45;
-
-		//Swap
-		Temp = SuffledPocket[FirstIndex];
-		SuffledPocket[FirstIndex] = SuffledPocket[SecondIndex];
-		SuffledPocket[SecondIndex] = Temp;
-	}
-
-	//6개의 공 뽑기
-	cout << "뽑은 공 숫자:";
-	for (int i = 0; i < 6; i++)
-	{
-		cout << " " << SuffledPocket[i];
-	}
-	cout << endl;
-	return 0;
-}
+*/
