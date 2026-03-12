@@ -56,6 +56,7 @@ int main()
 	TempArrayPointer2 = nullptr;
 	*/
 
+	/*
 	//포인터 과제
 	int Size = 0;
 	cin >> Size;
@@ -78,6 +79,42 @@ int main()
 	cout << endl;
 	delete[] DynamicArray;
 	DynamicArray = nullptr;
+	*/
 
+	//무작위 공뽑기 과제
+	int InitPocket[45] = { 0 }; //45개의 공 생성
+	int SuffledPocket[45] = { 0 };
+	for (int i = 0; i < 45; i++) // InitPocket 45개의 공 초기화
+	{
+		InitPocket[i] = i+1;
+	}
+	for (int i = 0; i < 45; i++) // SuffledPocket와 InitPocket 동기화
+	{
+		SuffledPocket[i] = InitPocket[i];
+	}
+
+	//45개의 공 셔플
+	srand((unsigned)time(nullptr)); //시드 초기화
+	int Temp = 0; //셔플을 위한 공간
+	int FirstIndex = 0;
+	int SecondIndex = 0;
+	for (int i = 0; i < 180; i++) //대충 적당한 횟수로 섞어주셈
+	{
+		FirstIndex = rand() % 45;
+		SecondIndex = rand() % 45;
+
+		//Swap
+		Temp = SuffledPocket[FirstIndex];
+		SuffledPocket[FirstIndex] = SuffledPocket[SecondIndex];
+		SuffledPocket[SecondIndex] = Temp;
+	}
+
+	//6개의 공 뽑기
+	cout << "뽑은 공 숫자:";
+	for (int i = 0; i < 6; i++)
+	{
+		cout << " " << SuffledPocket[i];
+	}
+	cout << endl;
 	return 0;
 }
