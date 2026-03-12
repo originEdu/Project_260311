@@ -20,38 +20,34 @@ int Map[10][10] =
 	,{1,1,1,1,1,1,1,1,1,1}
 };
 
-//플레이어 생성 -> //초기 위치 1,1 
-//구조체나 클래스사용금지
-int PlayerX = 1;
-int PlayerY = 1;
-
-//int Direct[4][2] =
-//{
-//	 { 1, 0} //UP
-//	,{-1, 0} //Down
-//	,{ 0, 1} //Right
-//	,{ 0,-1} //Left
-//};
+//플레이어 구조체로 생성 
+struct FVector2i
+{
+	int X;
+	int Y;
+};
+FVector2i Player;
 
 #define ESC 27
 void UpdatePlayerPlace(int Input);
 void Rander();
 void Gotoxy(int x, int y);
 
+
 int main()
 {
-
 	char Input;
+	Player.X = 1;
+	Player.Y = 1;
 	while(true){
-		Rander();
-		Input = _getch();
+		Rander(); //콘솔에 그림
+		Input = _getch(); //사용자 입력 받음
 		if (Input == ESC)
 		{
 			cout << "End!";
 			break;
 		}
-		//플레이어 위치조정
-		UpdatePlayerPlace(Input);//wasd로 이동 -> 이동시 벽이면 움직임 막자
+		UpdatePlayerPlace(Input);//wasd 들어오면 플레이어 위치조정
 		
 	}
 	
@@ -69,7 +65,7 @@ void Rander()
 	{
 		for (int x=0; x < 10; x++)
 		{
-			if ((PlayerY == y) && (PlayerX == x))
+			if ((Player.Y == y) && (Player.X == x))
 			{
 				cout << "P";
 			}
@@ -90,30 +86,30 @@ void UpdatePlayerPlace(int Input)
 {
 	if (Input == 'w') // UP
 	{
-		if (PlayerY<9 && PlayerY>1)
+		if (Player.Y <9 && Player.Y>1)
 		{
-			PlayerY--;
+			Player.Y--;
 		}
 	}
 	if (Input == 's') // Down
 	{
-		if (PlayerY < 8 && PlayerY>0)
+		if (Player.Y < 8 && Player.Y>0)
 		{
-			PlayerY++;
+			Player.Y++;
 		}
 	}
 	if (Input == 'a') // Left
 	{
-		if (PlayerX < 9 && PlayerX>1)
+		if (Player.X < 9 && Player.X>1)
 		{
-			PlayerX--;
+			Player.X--;
 		}
 	}
 	if (Input == 'd') // Right
 	{
-		if (PlayerX < 8 && PlayerX>0)
+		if (Player.X < 8 && Player.X>0)
 		{
-			PlayerX++;
+			Player.X++;
 		}
 	}
 }
