@@ -7,7 +7,7 @@ int* CreatePocket(int Size);
 void SynchronizingPocket(int* BasePocket, int* TargetPocket, int Size);
 
 //주머니 셔플
-void Suffle(int* Pocket, int Size);
+void Shuffle(int* Pocket, int Size);
 
 //공 뽑기
-void PullOut(int* SuffledPocket, int Number);
+void PullOut(int* ShuffledPocket, int Number);

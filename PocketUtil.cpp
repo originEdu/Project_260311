@@ -35,7 +35,7 @@ void SynchronizingPocket(int* BasePocket, int* TargetPocket, int Size)
 * 인자 : 주머니, 크기
 * 반환값 : X
 */
-void Suffle(int* Pocket, int Size)
+void Shuffle(int* Pocket, int Size)
 {
 	srand((unsigned)time(nullptr)); //시드 초기화
 	int Temp = 0; //셔플을 위한 공간
@@ -59,12 +59,12 @@ void Suffle(int* Pocket, int Size)
 * 반환값 : X
 * 뽑은 주머니 번호 콘솔출력
 */
-void PullOut(int* SuffledPocket, int Number)
+void PullOut(int* ShuffledPocket, int Number)
 {
 	std::cout << "뽑은 공 숫자:";
 	for (int i = 0; i < Number; i++)
 	{
-		std::cout << " " << SuffledPocket[i];
+		std::cout << " " << ShuffledPocket[i];
 	}
 	std::cout << std::endl;
 }
